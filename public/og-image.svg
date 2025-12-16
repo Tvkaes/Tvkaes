@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#030303"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+    <linearGradient id="text-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="50%" style="stop-color:#0ea5e9"/>
+      <stop offset="100%" style="stop-color:#f97316"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg-grad)"/>
+  <circle cx="900" cy="200" r="120" fill="#7c3aed" opacity="0.3"/>
+  <circle cx="950" cy="350" r="80" fill="#0ea5e9" opacity="0.25"/>
+  <circle cx="850" cy="400" r="100" fill="#f97316" opacity="0.2"/>
+  <text x="100" y="280" font-family="system-ui, sans-serif" font-size="72" font-weight="bold" fill="white">Jonathan González</text>
+  <text x="100" y="360" font-family="system-ui, sans-serif" font-size="36" fill="url(#text-grad)">Front-end Developer & Passionate Designer</text>
+  <text x="100" y="450" font-family="system-ui, sans-serif" font-size="24" fill="#888">React · TypeScript · Node.js · Tailwind CSS</text>
+</svg>

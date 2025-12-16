@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@400;500;600&display=swap');
+
+@import "tailwindcss";
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "nocturne";
+  default: true;
+  prefersdark: true;
+  color-scheme: dark;
+  --color-primary: #00d4ff;
+  --color-primary-content: #031014;
+  --color-secondary: #7c3aed;
+  --color-accent: #f97316;
+  --color-neutral: #151515;
+  --color-base-100: #050505;
+  --color-base-200: #0d0d0d;
+  --color-base-300: #1f1f1f;
+  --color-base-content: #e5e7eb;
+  --color-info: #38bdf8;
+  --color-success: #22c55e;
+  --color-warning: #fbbf24;
+  --color-error: #fb7185;
+}
+@plugin "daisyui/theme" {
+  name: "lumina";
+  default: false;
+  prefersdark: false;
+  color-scheme: light;
+  --color-primary: #00a6c7;
+  --color-primary-content: #f0fafd;
+  --color-secondary: #6d28d9;
+  --color-accent: #ea580c;
+  --color-neutral: #111827;
+  --color-base-100: #ffffff;
+  --color-base-200: #f5f5f5;
+  --color-base-300: #e5e5e5;
+  --color-base-content: #111827;
+  --color-info: #0ea5e9;
+  --color-success: #16a34a;
+  --color-warning: #fb923c;
+  --color-error: #ef4444;
+}
+@config "../tailwind.config.js";
+
+@layer base {
+  :root {
+    font-family: 'Sora', ui-sans-serif, system-ui;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    --bubble-dark: #1d0e2c;
+    --bubble-primary: #7c3aed;
+    --bubble-secondary: #a855f7;
+    --bubble-accent: #ff73c6;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: hsl(var(--b1));
+    color: hsl(var(--bc));
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+
+@layer utilities {
+  .glass-panel {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .background-layers {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .theme-shell::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
+    background-image: url('https://www.transparenttextures.com/patterns/noise-pattern-with-subtle-cross-lines.png');
+    background-size: 150px 150px;
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+  }
+
+  .background-layers::before,
+  .background-layers::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transition: opacity 0.4s ease, background 0.4s ease;
+  }
+
+  .background-layers::before {
+    background: radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.25), transparent 45%),
+      radial-gradient(circle at 80% 0%, rgba(14, 165, 233, 0.2), transparent 45%),
+      radial-gradient(circle at 50% 80%, rgba(249, 115, 22, 0.25), transparent 55%);
+  }
+
+  .background-layers::after {
+    background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+    opacity: 0.12;
+    mix-blend-mode: soft-light;
+  }
+
+  .shadow-depth {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .background-layers.lumina::before {
+    background: radial-gradient(circle at 20% 20%, rgba(0, 164, 201, 0.2), transparent 45%),
+      radial-gradient(circle at 80% 0%, rgba(109, 40, 217, 0.15), transparent 45%),
+      radial-gradient(circle at 50% 80%, rgba(234, 88, 12, 0.18), transparent 55%);
+  }
+
+  .background-layers.lumina::after {
+    opacity: 0.08;
+    mix-blend-mode: multiply;
+  }
+
+  .background-layers.nocturne::before {
+    background: radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.25), transparent 45%),
+      radial-gradient(circle at 80% 0%, rgba(14, 165, 233, 0.2), transparent 45%),
+      radial-gradient(circle at 50% 80%, rgba(249, 115, 22, 0.25), transparent 55%);
+  }
+
+  .background-layers.nocturne::after {
+    opacity: 0.12;
+    mix-blend-mode: soft-light;
+  }
+
+  /* === BUBBLE CLUSTER ANIMATION === */
+  .bubble-cluster {
+    position: relative;
+    width: min(360px, 80vw);
+    aspect-ratio: 1 / 1.15;
+    margin-inline: auto;
+    filter: url('#lava-goo');
+  }
+
+  @media (min-width: 768px) {
+    .bubble-cluster {
+      margin-left: auto;
+    }
+  }
+
+  .bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--bubble-primary);
+    box-shadow: 0 0 35px rgba(124, 58, 237, 0.35);
+    opacity: 0.95;
+  }
+
+  .bubble:nth-child(1) {
+    width: 45%;
+    height: 45%;
+    top: 40%;
+    left: 10%;
+    animation: bubbleDrift 18s ease-in-out infinite;
+  }
+
+  .bubble:nth-child(2) {
+    width: 35%;
+    height: 35%;
+    top: 10%;
+    right: 8%;
+    background: var(--bubble-secondary);
+    animation: bubbleRise 15s 1s ease-in-out infinite;
+  }
+
+  .bubble:nth-child(3) {
+    width: 28%;
+    height: 28%;
+    bottom: 6%;
+    right: 18%;
+    background: var(--bubble-accent);
+    animation: bubbleFloat 14s 0.5s ease-in-out infinite;
+  }
+
+  .bubble:nth-child(4) {
+    width: 22%;
+    height: 22%;
+    top: 5%;
+    left: 0;
+    background: var(--bubble-secondary);
+    animation: bubbleDrift 20s 2s ease-in-out infinite;
+  }
+
+  .bubble:nth-child(5) {
+    width: 18%;
+    height: 18%;
+    top: 50%;
+    right: 0;
+    background: var(--bubble-accent);
+    animation: bubbleRise 12s 1.5s ease-in-out infinite;
+  }
+
+  .bubble:nth-child(6) {
+    width: 26%;
+    height: 26%;
+    bottom: 0;
+    left: 35%;
+    background: var(--bubble-primary);
+    animation: bubbleFloat 16s 0.5s ease-in-out infinite;
+  }
+
+  .bubble:nth-child(7) {
+    width: 16%;
+    height: 16%;
+    top: 32%;
+    left: 55%;
+    background: var(--bubble-secondary);
+    animation: bubbleDrift 17s 2s ease-in-out infinite;
+  }
+
+  .bubble:nth-child(8) {
+    width: 14%;
+    height: 14%;
+    bottom: 25%;
+    left: 5%;
+    background: var(--bubble-accent);
+    animation: bubbleRise 13s 1s ease-in-out infinite;
+  }
+
+  .bubble:nth-child(9) {
+    width: 12%;
+    height: 12%;
+    top: 25%;
+    right: 32%;
+    background: var(--bubble-primary);
+    animation: bubbleFloat 15s 2.5s ease-in-out infinite;
+  }
+
+  .bubble:nth-child(10) {
+    width: 10%;
+    height: 10%;
+    bottom: 10%;
+    right: 5%;
+    background: var(--bubble-secondary);
+    animation: bubbleDrift 19s 1.5s ease-in-out infinite;
+  }
+
+  @keyframes bubbleFloat {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    20% {
+      transform: translate(-15px, -20px) scale(1.08);
+    }
+    40% {
+      transform: translate(10px, -15px) scale(0.95);
+    }
+    60% {
+      transform: translate(-10px, 10px) scale(1.05);
+    }
+    80% {
+      transform: translate(15px, 5px) scale(0.98);
+    }
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+  }
+
+  @keyframes bubbleDrift {
+    0% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    33% {
+      transform: translate(20px, -25px) scale(1.1) rotate(5deg);
+    }
+    66% {
+      transform: translate(-15px, 15px) scale(0.92) rotate(-3deg);
+    }
+    100% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+  }
+
+  @keyframes bubbleRise {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(8px, -30px) scale(1.12);
+    }
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+  }
+
+  /* === TECH CAROUSEL === */
+  .tech-marquee {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .tech-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    animation: techMarquee 32s linear infinite;
+  }
+
+  .tech-pill {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.12), rgba(0, 212, 255, 0.08));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+  }
+
+  @keyframes techMarquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
