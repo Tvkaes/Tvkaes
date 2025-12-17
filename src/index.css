@@ -3,25 +3,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
 @plugin "daisyui/theme" {
-  name: "nocturne";
-  default: true;
-  prefersdark: true;
-  color-scheme: dark;
-  --color-primary: #00d4ff;
-  --color-primary-content: #031014;
-  --color-secondary: #7c3aed;
-  --color-accent: #f97316;
-  --color-neutral: #151515;
-  --color-base-100: #050505;
-  --color-base-200: #0d0d0d;
-  --color-base-300: #1f1f1f;
-  --color-base-content: #e5e7eb;
-  --color-info: #38bdf8;
-  --color-success: #22c55e;
-  --color-warning: #fbbf24;
-  --color-error: #fb7185;
-}
-@plugin "daisyui/theme" {
   name: "lumina";
   default: false;
   prefersdark: false;
@@ -304,13 +285,30 @@
   .tech-marquee {
     overflow: hidden;
     position: relative;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
   }
 
   .tech-track {
     display: flex;
     gap: 1.5rem;
     width: max-content;
-    animation: techMarquee 32s linear infinite;
+    animation: techMarquee 40s linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
 
   .tech-pill {
@@ -322,10 +320,10 @@
 
   @keyframes techMarquee {
     0% {
-      transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
     100% {
-      transform: translateX(-50%);
+      transform: translate3d(-50%, 0, 0);
     }
   }
 }
