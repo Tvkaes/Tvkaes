@@ -24,9 +24,9 @@ export function Hero({ gradientAccent, onScrollToProjects }: HeroProps) {
           </button>
           <a
             href="mailto:jjgonzalezj0@gmail.com"
-            className="btn btn-outline btn-lg rounded-full border-base-300/60 bg-base-100/80 text-[11px] uppercase tracking-[0.4em]"
+            className="btn btn-lg rounded-full border-none bg-base-100 px-8 py-4 text-base-content shadow-[0_12px_32px_rgba(3,3,3,0.25)] transition-all duration-500 hover:-translate-y-0.5 hover:shadow-[0_20px_45px_rgba(0,212,255,0.35),0_20px_45px_rgba(124,58,237,0.25)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
-            Escríbeme
+            <span className="text-[11px] uppercase tracking-[0.4em]">Escríbeme</span>
           </a>
         </div>
       </div>
