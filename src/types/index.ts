@@ -13,4 +13,4 @@ export type Project = {
   gradient: string
   repo?: string
 }
-export type SocialLink = { label: string; url: string; Icon: () => ReactElement }
+export type SocialLink = { label: string; url: string; Icon: (props?: { className?: string }) => ReactElement }

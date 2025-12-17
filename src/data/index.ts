@@ -1,5 +1,5 @@
-import type { TechCategory, TechBadge, Experience, EducationItem, Project, SocialLink } from '../types'
-import { LinkedInIcon, GitHubIcon } from '../components/icons'
+import type { TechCategory, TechBadge, Experience, EducationItem, Project, SocialLink } from '@/types'
+import { LinkedInIcon, GitHubIcon } from '@/components/icons'
 
 export const techCategories: TechCategory[] = [
   {
@@ -10,13 +10,13 @@ export const techCategories: TechCategory[] = [
   },
   {
     title: 'Frontend móvil',
-    description: 'Experiencias nativas e híbridas con React Native, Flutter y Angular para productos multi-dispositivo.',
+    description: 'Experiencias nativas e híbridas con React Native, Flutter y Angular para productos multidispositivo.',
     skills: ['React Native', 'Flutter', 'Angular', 'Astro', 'Tailwind CSS', 'Design Systems'],
     gradient: 'from-pink-500/70 via-rose-400/40 to-orange-400/30',
   },
   {
     title: 'Backend & Ops',
-    description: 'Servicios Node.js conectados a MongoDB/MySQL, automatizados con CI/CD y controlados con buenas prácticas.',
+    description: 'Servicios Node.js conectados a MongoDB y MySQL, automatizados con CI/CD y gestionados con buenas prácticas.',
     skills: ['Node JS', 'MongoDB', 'MySQL', 'Python', 'CI/CD', 'Git'],
     gradient: 'from-green-500/70 via-emerald-400/40 to-teal-400/30',
   },
@@ -48,6 +48,7 @@ export const techMarquee: TechBadge[] = [
   { label: 'MySQL', meta: 'Relacional', color: '#4479A1', logo: 'mysql' },
   { label: 'Git', meta: 'Versioning', color: '#F05032', logo: 'git' },
   { label: 'CI/CD', meta: 'Ops', color: '#2088FF', logo: 'githubactions' },
+  { label: 'Next.js', meta: 'Framework', color: '#000000', logo: 'nextdotjs' },
 ]
 
 export const experiences: Experience[] = [
@@ -56,21 +57,21 @@ export const experiences: Experience[] = [
     role: 'Fullstack Developer',
     place: 'N1 Capital',
     impact:
-      'Construyo y optimizo plataformas internas end-to-end. Implementé pipelines CI/CD que redujeron errores de despliegue y aceleraron 70% los flujos internos.',
+      'Construyo y optimizo plataformas internas de principio a fin. Implementé pipelines CI/CD que redujeron errores de despliegue y aceleraron un 70 % los flujos internos.',
   },
   {
     timeframe: '2022 – 2023',
     role: 'Frontend Engineer',
     place: 'Mino Logistics',
     impact:
-      'Diseñé la aplicación logística, integré servicios externos para automatizar procesos y reduje tiempos críticos de 4s a 1.5s mediante refactors y testing continuo.',
+      'Diseñé la aplicación logística, integré servicios externos para automatizar procesos y reduje tiempos críticos de 4 s a 1,5 s mediante refactorizaciones y testing continuo.',
   },
 ]
 
 export const education: EducationItem[] = [
   {
     year: '2021',
-    title: 'Licenciatura en Ciencias Computacionales',
+    title: 'Licenciatura en Informatica',
     institution: 'Universidad Autónoma de Baja California',
     details: 'Formación en algoritmos, patrones de diseño y desarrollo de software empresarial.',
   },
@@ -88,7 +89,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Three.js Environment',
-    description: 'Experimento inmersivo con shaders personalizados, interacción via audio y escenas WebGL responsivas.',
+    description: 'Experimento inmersivo con shaders personalizados, interacción vía audio y escenas WebGL responsivas.',
     stack: ['Three.js', 'GLSL', 'GSAP', 'WebGL'],
     year: '2025',
     url: 'https://tvkaes.github.io/i-have-a-dream/',

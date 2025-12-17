@@ -1,5 +1,7 @@
-import type { Project } from '../types'
+import type { Project } from '../../types'
 import { ProjectCard } from './ProjectCard'
+import { SectionHeader } from '../ui/SectionHeader'
+import { GridSection } from '../ui/GridSection'
 
 interface ProjectsProps {
   items: Project[]
@@ -17,12 +19,12 @@ export function Projects({ items, icons, pokeballLogo }: ProjectsProps) {
 
   return (
     <section id="projects" className="scroll-mt-32 space-y-10">
-      <header className="space-y-3" data-animate>
-        <p className="text-[11px] uppercase tracking-[0.5em] text-primary">Portafolio selecto</p>
-        <h2 className="font-display text-4xl">Experiencias recientes</h2>
-        <p className="text-base-content/80">Cards tipo bento con profundidad, gradientes adaptables y microinteracciones.</p>
-      </header>
-      <div className="grid gap-6 md:grid-cols-3">
+      <SectionHeader
+        label="Portafolio selecto"
+        title="Experiencias recientes"
+        description="Cards tipo bento con profundidad, gradientes adaptables y microinteracciones."
+      />
+      <GridSection cols={3}>
         {items.map((project, index) => (
           <ProjectCard
             key={project.title}
@@ -30,7 +32,7 @@ export function Projects({ items, icons, pokeballLogo }: ProjectsProps) {
             icon={getIcon(project, index)}
           />
         ))}
-      </div>
+      </GridSection>
     </section>
   )
 }
