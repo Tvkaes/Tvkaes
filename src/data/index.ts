@@ -83,7 +83,7 @@ export const projects: Project[] = [
     description: 'Explorador de Pokémon con filtros avanzados, animaciones suaves y sincronización en tiempo real.',
     stack: ['Vue', 'Pinia', 'PokéAPI', 'GSAP'],
     year: '2023',
-    url: 'https://pokedex-tvkaes.vercel.app',
+    url: 'https://pokedex-ruby-kappa.vercel.app',
     repo: 'https://github.com/Tvkaes/Pokedex',
     gradient: 'from-red-500/70 via-rose-400/40 to-yellow-400/30',
   },
