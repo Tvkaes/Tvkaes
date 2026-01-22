@@ -81,7 +81,7 @@ export const projects: Project[] = [
   {
     title: 'Pokedex Insights',
     description: 'Explorador de Pokémon con filtros avanzados, animaciones suaves y sincronización en tiempo real.',
-    stack: ['Vue', 'Pinia', 'PokéAPI', 'GSAP'],
+    stack: ['Vue', 'Pinia', 'PokéAPI', 'Framer-Motion'],
     year: '2023',
     url: 'https://pokedex-ruby-kappa.vercel.app',
     repo: 'https://github.com/Tvkaes/Pokedex',
@@ -103,6 +103,14 @@ export const projects: Project[] = [
     year: '2025',
     url: '#',
     gradient: 'from-blue-500/60 via-cyan-400/40 to-emerald-300/30',
+  },
+  {
+    title: 'TCGly Market',
+    description: 'Marketplace para coleccionistas con filtros instantáneos, experiencia mobile-first.',
+    stack: ['React', 'TypeScript', 'Vite', 'Tailwind', 'React Query', 'Zustand', 'Firebase', 'Three.js', 'Anime.js', 'GSAP'],
+    year: '2025',
+    url: 'https://tcgly-market.vercel.app/',
+    gradient: 'from-amber-500/70 via-orange-400/40 to-lime-300/30',
   },
 ]
 
